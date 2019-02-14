@@ -1,0 +1,58 @@
+spring:
+  datasource:
+    datasource1:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: root
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      minPoolSize: 3
+      maxPoolSize: 25
+      maxLifetime: 20000
+      borrowConnectionTimeout: 30
+      loginTimeout: 30
+      maintenanceInterval: 60
+      maxIdleTime: 60
+      testQuery: select 1
+    datasource2:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: root
+      url: jdbc:mysql://localhost:3306/test02?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      minPoolSize: 3
+      maxPoolSize: 25
+      maxLifetime: 20000
+      borrowConnectionTimeout: 30
+      loginTimeout: 30
+      maintenanceInterval: 60
+      maxIdleTime: 60
+      testQuery: select 1
+  mail:
+    host: smtp.qq.com            #QQ邮箱smtp主机
+    port: 587                    #端口号465或587
+    username: 724648662@qq.com   #发送者用户名
+    to: duwencun0605@sina.com    #接受者
+    password: oomzhgzwaexubdji  # 这里QQ邮箱开通POP3/SMTP提供的授权码，如果邮箱服务商没有授权码，可以使用密码代替
+    protocol: smtp
+    default-encoding: UTF-8
+
+#  redis:
+#    host: 192.168.235.127
+#    port: 6379
+#    password:
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  type-aliases-package: com.atguigu.springboot.entity
+
+xxl.job:
+  admin.address: http://127.0.0.1:8081/xxl-job-admin
+  accessToken:
+  alarmEmail: 724648662@qq.com
+  executor:
+    appname: myjobtest
+    ip:
+    port: 9998
+    logpath: /data/applogs/xxl-job/jobhandler
+    #执行器Log文件定期清理功能，指定日志保存天数，日志文件过期自动删除。限制至少保持3天，否则功能不生效；
+    logretentiondays: -1
+server:
+  port: 80

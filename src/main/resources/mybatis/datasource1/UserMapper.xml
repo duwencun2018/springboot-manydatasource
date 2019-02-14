@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atguigu.springboot.mapper.datasource1.UserMapper">
+
+    <resultMap id="userMap" type="com.atguigu.springboot.entity.UserEntity">
+        <result column="id" property="id" javaType="int"/>
+        <result column="username" property="username" javaType="string"/>
+        <result column="age" property="age" javaType="int"/>
+    </resultMap>
+
+    <select id="query" resultMap="userMap">
+        select * from t_user
+    </select>
+
+    <insert id="insert">
+        insert into t_user(id, username, age) values(#{id}, #{username}, #{age})
+    </insert>
+
+    <update id="update">
+        update t_user set username=#{username}, age=#{age} where id=#{id}
+    </update>
+
+    <delete id="delete">
+        delete from t_user where id=#{id}
+    </delete>
+
+    <select id="get" resultMap="userMap">
+        select * from t_user where id=#{id}
+    </select>
+
+</mapper>

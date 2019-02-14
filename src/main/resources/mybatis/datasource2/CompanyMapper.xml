@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atguigu.springboot.mapper.datasource2.CompanyMapper">
+
+    <resultMap id="companyMap" type="com.atguigu.springboot.entity.CompanyEntity">
+        <result column="id" property="id" javaType="int"/>
+        <result column="company_name" property="companyName" javaType="string"/>
+    </resultMap>
+
+    <select id="query" resultMap="companyMap">
+        select * from t_company
+    </select>
+
+    <select id="get" resultMap="companyMap">
+        select * from t_company where id=#{id}
+    </select>
+
+    <insert id="insert">
+        insert t_company(id, company_name) values(#{id}, #{companyName})
+    </insert>
+
+    <delete id="delete">
+        delete from t_company where id=#{id}
+    </delete>
+
+
+    <update id="update">
+        update t_company set company_name=#{company_name} where id=#{id}
+    </update>
+
+</mapper>
