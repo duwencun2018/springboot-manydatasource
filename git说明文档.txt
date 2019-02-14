@@ -1,0 +1,2 @@
+idea git提交项目，忽略文件或文件夹设置：
+    https://blog.csdn.net/weixin_42617398/article/details/81807448
